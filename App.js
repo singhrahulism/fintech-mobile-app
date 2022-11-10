@@ -31,7 +31,7 @@ function DrawerContent(props) {
 function HomeStack() {
   return (
     <HomeStackNav.Navigator>
-      <HomeStackNav.Screen name='Home' component={HomeScreen} />
+      <HomeStackNav.Screen name='Home' component={HomeScreen} options={{headerShown: false}} />
     </HomeStackNav.Navigator>
   )
 }

@@ -1,48 +1,85 @@
-import React from 'react'
-import { Text, View, StyleSheet, StatusBar } from 'react-native'
-import { EvilIcons } from '@expo/vector-icons';
-import SingleDrawerElement from '../../components/Drawer/SingleDrawerElement';
+import React, { useEffect } from 'react'
+import { Text, View, StyleSheet, StatusBar, ImageBackground, TouchableOpacity } from 'react-native'
+
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
+import ActionMenu from '../../components/Menus/ActionMenu';
+
+const HEADER_HEIGHT = 300
 
 const HomeScreen = () => {
+
+    const navigation = useNavigation()
+
     return <View style={styles.container}>
-        <View style={styles.drawerHeaderContainer}>
-            <Text>
-                Menus
-            </Text>
-            <View style={styles.closeContainer}>
-                <EvilIcons name="close" size={30} color="black" />
-            </View>
-        </View>
-        <View style={styles.drawersContainer}>
-            <SingleDrawerElement iconName={'home'} />
-            <SingleDrawerElement iconName={'file-invoice-dollar'} />
+        <View style={{height: HEADER_HEIGHT}}>
+            <ImageBackground
+                source={require('../../../assets/homeHeaderBackground.png')}
+                style={{flex: 1, paddingTop: StatusBar.currentHeight}}
+                resizeMode='cover'
+            >
+                <View style={styles.actionContainer}>
+                    <TouchableOpacity
+                        activeOpacity={0.6}
+                        style={styles.actionIconContainer}
+                        onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+                    >
+                        <Ionicons name="ios-menu-outline" size={24} color="white" />
+                    </TouchableOpacity>
+                    <View style={styles.actionIconContainer}>
+                        <View style={styles.redDotContainer}/>
+                        <FontAwesome name="bell-o" size={22} color="white" />
+                    </View>
+                </View>
+                <View style={styles.headerLabelContainer}>
+                    <Text style={{color: 'white'}}>
+                        TOTAL BALANCE
+                    </Text>
+                    <Text style={{color: 'white', fontSize: 50, fontWeight: 'bold', marginTop: 5}}>
+                        $21,902
+                    </Text>
+                </View>
+            </ImageBackground>
+            <ActionMenu />
         </View>
     </View>
 }
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: StatusBar.currentHeight+40,
-        marginHorizontal: 20,
-        borderColor: 'red',
-        borderWidth: 1
+        
     },
-    drawerHeaderContainer: {
+    actionContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        marginHorizontal: 30,
+        marginVertical: 25
     },
-    closeContainer: {
-        // backgroundColor: '#f3f4f6'
-        backgroundColor: 'white',
-        height: 50,
-        width: 50,
+    actionIconContainer: {
+        height: 55,
+        width: 55,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 50/2
+        backgroundColor: '#479bfb',
+        borderRadius: 55/2
     },
-    drawersContainer: {
-        marginTop: 50
+    redDotContainer: {
+        position: 'absolute',
+        right: 18,
+        top: 15,
+        borderColor: 'white',
+        backgroundColor: 'red',
+        borderWidth: 1,
+        height: 8,
+        width: 8,
+        borderRadius: 8/2,
+        zIndex: 1
+    },
+    headerLabelContainer: {
+        borderColor: 'red',
+        borderWidth: 1,
+        alignItems: 'center'
     }
 })
 
