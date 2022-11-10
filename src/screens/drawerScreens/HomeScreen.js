@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import React from 'react'
+import { View, StyleSheet } from 'react-native'
 
-import { useNavigation } from '@react-navigation/native';
 import ActionMenu from '../../components/Menus/ActionMenu';
 import HomeHeader from '../../components/Headers/HomeHeader';
+import SendAgain from '../../components/Items/SendAgain';
+import SendAgainMenu from '../../components/Menus/SendAgainMenu';
 
 const HomeScreen = () => {
-
-    const navigation = useNavigation()
 
     return <View style={styles.container}>
         <HomeHeader />
         <ActionMenu />
+        <SendAgain />
+        <SendAgainMenu />
     </View>
 }
 
