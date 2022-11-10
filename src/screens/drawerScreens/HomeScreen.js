@@ -1,20 +1,22 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, ScrollView } from 'react-native'
 
 import ActionMenu from '../../components/Menus/ActionMenu';
 import HomeHeader from '../../components/Headers/HomeHeader';
 import SendAgain from '../../components/Items/SendAgain';
 import SendAgainMenu from '../../components/Menus/SendAgainMenu';
+import Transactions from '../../components/Menus/Transactions';
 
 const HomeScreen = () => {
 
-    return <View style={styles.container}>
+    return <ScrollView style={styles.container} showsVerticalScrollIndicator={false} >
         <HomeHeader />
         <ActionMenu />
         <SendAgain title={'Send Again'} />
         <SendAgainMenu />
         <SendAgain title={'Transactions'} />
-    </View>
+        <Transactions />
+    </ScrollView>
 }
 
 const styles = StyleSheet.create({
