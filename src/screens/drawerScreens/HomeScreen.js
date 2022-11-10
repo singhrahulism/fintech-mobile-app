@@ -1,48 +1,17 @@
 import React, { useEffect } from 'react'
-import { Text, View, StyleSheet, StatusBar, ImageBackground, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 
-import { Ionicons } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { useNavigation, DrawerActions } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import ActionMenu from '../../components/Menus/ActionMenu';
-
-const HEADER_HEIGHT = 300
+import HomeHeader from '../../components/Headers/HomeHeader';
 
 const HomeScreen = () => {
 
     const navigation = useNavigation()
 
     return <View style={styles.container}>
-        <View style={{height: HEADER_HEIGHT}}>
-            <ImageBackground
-                source={require('../../../assets/homeHeaderBackground.png')}
-                style={{flex: 1, paddingTop: StatusBar.currentHeight}}
-                resizeMode='cover'
-            >
-                <View style={styles.actionContainer}>
-                    <TouchableOpacity
-                        activeOpacity={0.6}
-                        style={styles.actionIconContainer}
-                        onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-                    >
-                        <Ionicons name="ios-menu-outline" size={24} color="white" />
-                    </TouchableOpacity>
-                    <View style={styles.actionIconContainer}>
-                        <View style={styles.redDotContainer}/>
-                        <FontAwesome name="bell-o" size={22} color="white" />
-                    </View>
-                </View>
-                <View style={styles.headerLabelContainer}>
-                    <Text style={{color: 'white'}}>
-                        TOTAL BALANCE
-                    </Text>
-                    <Text style={{color: 'white', fontSize: 50, fontWeight: 'bold', marginTop: 5}}>
-                        $21,902
-                    </Text>
-                </View>
-            </ImageBackground>
-            <ActionMenu />
-        </View>
+        <HomeHeader />
+        <ActionMenu />
     </View>
 }
 
