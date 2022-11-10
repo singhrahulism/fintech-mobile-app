@@ -11,8 +11,9 @@ const HomeScreen = () => {
     return <View style={styles.container}>
         <HomeHeader />
         <ActionMenu />
-        <SendAgain />
+        <SendAgain title={'Send Again'} />
         <SendAgainMenu />
+        <SendAgain title={'Transactions'} />
     </View>
 }
 

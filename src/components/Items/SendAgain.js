@@ -3,9 +3,9 @@ import { Text, View, StyleSheet } from 'react-native'
 
 import MenuHeading from '../Headers/MenuHeading';
 
-const SendAgain = () => {
+const SendAgain = ({ title }) => {
     return <View style={styles.container}>
-        <MenuHeading title={'Send Again'} />
+        <MenuHeading title={title} />
     </View>
 }
 
