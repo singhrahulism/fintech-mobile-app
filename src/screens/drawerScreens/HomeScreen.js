@@ -6,6 +6,7 @@ import HomeHeader from '../../components/Headers/HomeHeader';
 import SendAgain from '../../components/Items/SendAgain';
 import SendAgainMenu from '../../components/Menus/SendAgainMenu';
 import Transactions from '../../components/Menus/Transactions';
+import MadeBy from '../../components/Footers/MadeBy';
 
 const HomeScreen = () => {
 
@@ -16,6 +17,7 @@ const HomeScreen = () => {
         <SendAgainMenu />
         <SendAgain title={'Transactions'} />
         <Transactions />
+        <MadeBy />
     </ScrollView>
 }
 

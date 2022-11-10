@@ -1,11 +1,19 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity, ToastAndroid, Platform } from 'react-native'
 import { Foundation } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const ActionItem = ({ title, iconName, action }) => {
-    return <View style={styles.container}>
+    return <TouchableOpacity
+                style={styles.container}
+                activeOpacity={0.75}
+                onPress={() => {
+                    Platform.OS === 'android'
+                    ? ToastAndroid.show(title === 'More' ? title : `${title} Money`, ToastAndroid.SHORT)
+                    : alert(title === 'More' ? title : `${title} Money`)
+                }}
+            >
         {
             action === 'topup'
             ?
@@ -36,7 +44,7 @@ const ActionItem = ({ title, iconName, action }) => {
         <Text>
             {title}
         </Text>
-    </View>
+    </TouchableOpacity>
 }
 
 const styles = StyleSheet.create({
