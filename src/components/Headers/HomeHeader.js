@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, StatusBar, ImageBackground, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, StatusBar, ImageBackground, TouchableOpacity, ToastAndroid } from 'react-native'
 import { useNavigation, DrawerActions } from '@react-navigation/native'
 
 import { Ionicons } from '@expo/vector-icons';
@@ -26,10 +26,14 @@ const HomeHeader = () => {
                     >
                         <Ionicons name="ios-menu-outline" size={24} color="white" />
                     </TouchableOpacity>
-                    <View style={styles.actionIconContainer}>
+                    <TouchableOpacity
+                        activeOpacity={0.6}
+                        style={styles.actionIconContainer}
+                        onPress={() => ToastAndroid.show('Notification', ToastAndroid.SHORT)}
+                    >
                         <View style={styles.redDotContainer}/>
                         <FontAwesome name="bell-o" size={22} color="white" />
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.headerLabelContainer}>
                     <Text style={{color: 'white'}}>

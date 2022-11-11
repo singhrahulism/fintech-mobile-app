@@ -87,7 +87,7 @@ export const data = [
         method: 'sent',
         remarks: 'Payment sent',
         time: '11:45 PM',
-        amount: '+$69.69'
+        amount: '-$12.41'
     },
     {
         id: 10,
@@ -97,7 +97,7 @@ export const data = [
         method: 'sent',
         remarks: 'Payment sent',
         time: '11:45 PM',
-        amount: '+$69.69'
+        amount: '-$11.23'
     },
 
 
