@@ -1,13 +1,21 @@
 import React from 'react'
-import { Text, View, StyleSheet, Image } from 'react-native'
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
-const SingleAvatarSimple = ({ source, name }) => {
-    return <View style={styles.container}>
+const SingleAvatarSimple = ({ details }) => {
+
+    const navigation = useNavigation()
+
+    return <TouchableOpacity
+                style={styles.container}
+                activeOpacity={0.75}
+                onPress={() => navigation.navigate('SendMoney', {details: details})}
+            >
         <View style={styles.avatarContainer}>
-            <Image style={styles.avatarStyle} source={source} />
+            <Image style={styles.avatarStyle} source={details.imageSource} />
         </View>
-        <Text>{name}</Text>
-    </View>
+        <Text>{details.name}</Text>
+    </TouchableOpacity>
 }
 
 const styles = StyleSheet.create({

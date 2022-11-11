@@ -11,7 +11,7 @@ const SendAgainMenu = () => {
             horizontal
             keyExtractor={item => String(item.id)}
             renderItem={({item}) => {
-                return <SingleAvatarSimple source={item.imageSource} name={item.name} />
+                return <SingleAvatarSimple details={item} />
             }}
         />
     </View>

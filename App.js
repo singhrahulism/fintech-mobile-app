@@ -6,6 +6,7 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import DrawerHeader from './src/components/Drawer/DrawerHeader';
 
 import HomeScreen from './src/screens/drawerScreens/HomeScreen';
+import SendMoneyScreen from './src/screens/SendMoneyScreen';
 import TransactionsScreen from './src/screens/drawerScreens/TransactionsScreen';
 import StatisticScreen from './src/screens/drawerScreens/StatisticScreen';
 import CardsScreen from './src/screens/drawerScreens/CardsScreen';
@@ -32,6 +33,7 @@ function HomeStack() {
   return (
     <HomeStackNav.Navigator>
       <HomeStackNav.Screen name='Home' component={HomeScreen} options={{headerShown: false}} />
+      <HomeStackNav.Screen name='SendMoney' component={SendMoneyScreen} options={{headerShown: false, animation: 'slide_from_right'}} />
     </HomeStackNav.Navigator>
   )
 }

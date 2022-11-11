@@ -1,9 +1,9 @@
 import React from 'react'
 import { Text, View, StyleSheet, Image } from 'react-native'
-
+import { Feather } from '@expo/vector-icons';
 import { SECONDARY_COLOR } from '../../data/constants'
 
-const TransactionView = ({ details }) => {
+const TransactionView = ({ details, hidePrice }) => {
     return <View style={styles.container}>
         <View style={styles.avatarContainer}>
             <Image
@@ -16,10 +16,18 @@ const TransactionView = ({ details }) => {
             <View style={{height: 6}} />
             <Text style={styles.subTextContainer}>{details.time} · {details.remarks}</Text>
         </View>
-        <View style={styles.amountContainer}>
-            <Text style={{fontSize: 16, fontWeight: 'bold', color: details.amount[0] == '+' ? 'green' : '#d91616'}}>
-                {details.amount}
-            </Text>
+        <View style={[styles.amountContainer, { alignItems: hidePrice ? 'flex-end' : null }]}>
+            {
+                hidePrice
+                ?
+                    <View style={{borderColor: '#cecece', borderWidth: 2, borderRadius: 4}}>
+                        <Feather name="chevron-down" size={24} color={'#8e8e8e'} />
+                    </View>
+                :
+                    <Text style={{fontSize: 16, fontWeight: 'bold', color: details.amount[0] == '+' ? 'green' : '#d91616'}}>
+                        {details.amount}
+                    </Text>
+            }
         </View>
     </View>
 }
