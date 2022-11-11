@@ -57,7 +57,7 @@ const App = () => {
           name='Transactions'
           component={TransactionsScreen}
           options={{
-            title: '   Trans',
+            title: '   Transactions',
             headerShown: false,
             drawerActiveTintColor: '#535cda',
             drawerActiveBackgroundColor: 'transparent',
